@@ -39,6 +39,24 @@ let axiosConfig = {
             console.log(error);
           })
     }
+     
+    componentDidUpdate(prevProps){
+        if(this.props.Id !== prevProps.Id) {
+            console.log("profile: ", this.props.Id); // Now this will get the value
+            axios.get(`http://localhost:4000/${Id}`,axiosConfig) // And use value like this ${Id}
+            .then(res => { 
+                if(res.data){
+                    console.log(res)
+                }
+                else console.log('error')
+
+            }).catch(function(error){
+
+                console.log(error);
+              })
+        }
+    }
+     
     render() {
        
         return (
